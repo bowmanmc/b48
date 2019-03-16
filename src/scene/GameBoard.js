@@ -18,10 +18,10 @@ export default class GameBoard {
             this.board[i] = [];
             for (let j = 0; j < columns; j++) {
                 const pos = this.getTilePosition(i, j);
-                const tileBg = this.screen.add.image(pos.x, pos.y, 'tile-empty');
+                const tileBg = this.screen.add.sprite(pos.x, pos.y, 'tiles', 0);
                 tileBg.setDisplaySize(tileSize, tileSize);
 
-                const tile = this.screen.add.sprite(pos.x, pos.y, 'tiles', 3);
+                const tile = this.screen.add.sprite(pos.x, pos.y, 'tiles', 0);
                 tile.setDisplaySize(tileSize, tileSize);
                 tile.visible = false;
                 this.board[i][j] = {
@@ -52,7 +52,7 @@ export default class GameBoard {
             let tile = this.board[chosenTile.row][chosenTile.col];
             tile.value = 1;
             tile.sprite.visible = true;
-            tile.sprite.setFrame(0);
+            tile.sprite.setFrame(1);
             tile.sprite.alpha = 0;
             this.screen.tweens.add({
                 targets: [tile.sprite],
@@ -154,6 +154,7 @@ export default class GameBoard {
             targets: [tile],
             x: point.x,
             y: point.y,
+            ease: 'Elastic',
             //duration: Config.tweenSpeed * distance / tileSize,
             duration: Config.tweenSpeed,
             callbackScope: this,
@@ -176,7 +177,8 @@ export default class GameBoard {
                 const value = this.board[i][j].value;
                 if (value > 0) {
                     this.board[i][j].sprite.visible = true;
-                    this.board[i][j].sprite.setFrame(value - 1);
+                    //this.board[i][j].sprite.setFrame(value - 1);
+                    this.board[i][j].sprite.setFrame(value);
                     this.board[i][j].upgraded = false;
                 } else {
                     this.board[i][j].sprite.visible = false;

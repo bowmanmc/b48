@@ -13,7 +13,7 @@ export default class BootScreen extends Phaser.Scene {
     preload() {
         this.load.image('tile-empty', 'images/tile-empty.png');
         this.load.spritesheet('tiles', 'images/tiles.png', {
-            frameWidth: 200, frameHeight: 200
+            frameWidth: 256, frameHeight: 256
         });
     }
 

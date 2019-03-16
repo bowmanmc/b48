@@ -11,7 +11,7 @@ export default {
             gravity: { y: 200 }
         }
     },
-
+    backgroundColor: '#fefcca',
     board: {
         rows: 4,
         columns: 4,
@@ -19,7 +19,7 @@ export default {
         marginTop: 100
     },
 
-    tweenSpeed: 150,
+    tweenSpeed: 350,
     swipeMaxTime: 1000,
     swipeMinDistance: 20,
     swipeMinNormal: 0.85
