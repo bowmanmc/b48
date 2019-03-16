@@ -1,0 +1,13 @@
+app/styles/site.min.css
+app/styles/vendor.min.css
+app.scripts/game.min.js
+build/*
+node_modules
+bower_components
+dist
+reports
+.idea
+.idea/workspace.xml
+.tmp
+.sass-cache
+.DS_Store
